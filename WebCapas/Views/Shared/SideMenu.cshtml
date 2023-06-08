@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Capa_Datos.Menu>
+
+@{ 
+    var IDTUsuario = Session["ROL"];
+}
+
+<ul id="menu-content" class="menu-content collapse out animated bounceInDown bg-dark">
+
+    @foreach (var item in Model)
+    {
+        <li class="sub-menu">
+            <a> @item.MENSAJE <div class='fa fa-caret-down right'></div></a>
+            @if (item.Menu1.Count > 0)
+            {
+                <ul id="menu-content" class="menu-content collapse out animated bounceInDown bg-dark">
+                    @foreach (var sub in item.Menu1.Where(i => i.BHABILITADO == 1 && i.IIDROL == (int)IDTUsuario))
+                    {
+                        <li>
+                            @Html.ActionLink(sub.MENSAJE, sub.ACCION, sub.CONTROLLER,
+                            new { area = "" }, new { @class = "nav-link js-scroll-trigger fa fa-caret-down right" })
+
+                            @*  @if (sub.Menu1.Count > 0)
+                                {
+                                    <ul>
+                                       @foreach (var lvl3 in sub.Menu1)
+                                        {
+
+                                        }
+                                    </ul>
+                                }*@
+                        </li>
+                    }
+                </ul>
+            }
+        </li>
+    }
+    <li class="sub-menu">
+        @Html.ActionLink("Cerrar Sesion", "CerrarSesion", "Login",
+            new { area = "" }, new { @class = "nav-link active  js-scroll-trigger fa fa-caret-down right" })
+    </li>
+</ul>
+
+
+
+<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script>
+        $('.sub-menu ul').hide();
+        $(".sub-menu a").click(function () {
+            $(this).parent(".sub-menu").children("ul").slideToggle("100");
+            $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
+        });
+</script>
+

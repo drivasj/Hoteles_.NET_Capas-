@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Prueba";
+}
+
+<h2>Prueba</h2>
+
+<fieldset class="container mb-3">
+
+    <legend>Datos de Prueba</legend>
+    <form id="frmPrueba" method="post">
+
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label>Id Prueba</label>
+                <input type="text" class="form-control"
+                       name="id" value="0" readonly />
+            </div>
+
+            <div class=" mb-3 col-md-6">
+                <label>Nombre</label>
+                <input type="text" class="form-control"
+                       name="nombre" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" mb-3 col-md-6">
+                <label>Descripción</label>
+                <input type="text" class="form-control"
+                       name="descripcion" />
+            </div>
+        </div>
+
+    </form>
+    <button class="btn btn-primary" onclick="GuardarDatos()">Aceptar</button>
+    <button class="btn btn-danger" onclick="Limpiar()">Limpiar</button>
+
+</fieldset>
+
+<script src="~/Scripts/sweetalert.js"></script>
+<script src="~/Scripts/generic.js"></script>
+<script src="~/Scripts/prueba.js"></script>

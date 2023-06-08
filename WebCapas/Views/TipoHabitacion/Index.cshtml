@@ -1,0 +1,69 @@
+﻿@{
+    ViewBag.Title = "Producto";
+}
+
+<h3 style="color: #4f5b69; "><em>Tipo Habitaciones</em></h3>
+<hr style="color: #0056b2;" />
+
+<link href="~/Content/datatable.css" rel="stylesheet" />
+<fieldset class="container mb-3">
+
+    <legend>Datos de Tipo Habitación</legend>
+    <form id="frmTipoHabitacion" method="post">
+
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label>Id Tipo Habitación</label>
+                <input type="text" class="form-control"
+                       name="id" value="0" readonly />
+            </div>
+
+            <div class=" mb-3 col-md-6">
+                <label>Nombre</label>
+                <input type="text" class="form-control o max-40 min-4"
+                       name="nombre" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class=" mb-3 col-md-6">
+                <label>Descripción</label>
+                <input type="text" class="form-control o max-100 min-5"
+                       name="descripcion" />
+            </div>
+        </div>
+
+    </form>
+    <button class="btn btn-primary" onclick="GuardarDatos()">Aceptar</button>
+    <button class="btn btn-danger" onclick="Limpiar()">Limpiar</button>
+
+</fieldset>
+
+<div class="input-group mb-3">
+    <input type="text" class="form-control"
+           id="txtnombretipohabitacion"
+           onkeyup="Buscar"
+           placeholder="Ingrese Nombre Tipo Habitación" />
+    <input type="text" class="form-control"
+           id="txtDescripcion"
+           onkeyup="Buscar"
+           placeholder="Ingrese la Descripción" />
+    <button class="btn btn-primary"
+            onclick="Buscar()"
+            type="button" id="btnnombretipohabitacion">
+        Buscar
+    </button>
+</div>
+
+<div id="divTabla">
+
+</div>
+<br />
+<br />
+
+
+<script src="~/Scripts/jquery-3.4.1.js"></script>
+<script src="~/Scripts/datatable.js"></script>
+<script src="~/Scripts/sweetalert.js"></script>
+<script src="~/Scripts/generic.js"></script>
+<script src="~/Scripts/tipohabitacion.js"></script>

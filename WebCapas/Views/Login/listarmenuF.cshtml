@@ -1,0 +1,36 @@
+﻿@*@using Capa_Entidad;
+    @model IEnumerable<Capa_Entidad.Menu>
+
+    <ul id="menu-content" class="menu-content collapse out animated bounceInDown bg-dark">
+        @foreach (var item in Model)
+        {
+            <li class='sub-menu'>
+                <a href='#'> @item.MENSAJE<div class='fa fa-caret-down right'></div></a>
+
+                @if (item.Menu1.Count > 0)
+                {
+                    <ul>
+                        @foreach (var sub in item.Menu1)
+                        {
+                            <li>
+
+                                @Html.ActionLink(sub.MENSAJE, sub.ACCION, sub.CONTROLLER,
+                                new { area = "" }, new { @class = "nav-link js-scroll-trigger fa fa-caret-down right" })
+
+                                @if (sub.Menu1.Count > 0)
+                                {
+                                    <ul>
+                                        @foreach (var lvl3 in sub.Menu1)
+                                        {
+                                            <li>@lvl3.MENSAJE</li>
+                                        }
+                                    </ul>
+                                }
+                            </li>
+                        }
+                    </ul>
+                }
+            </li>
+
+        }
+    </ul>*@
